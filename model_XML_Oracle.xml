@@ -1,0 +1,91 @@
+<gadget >
+  <prompt-parameters>
+    <parameter  id="P_CODEMP" description="Empresa de Saída" metadata="multiList:Text" listType="sql" required="true" keep-last="false" keep-date="false" show-inactives="false" label="P_CODEMP : multiList:Text" order="0">
+      <expression type="SQL">
+        <![CDATA[
+        
+        select codemp value,codemp || ' - ' || nomefantasia label 
+from tsiemp
+ORDER BY codemp
+      
+      ]]>
+      </expression>
+    </parameter>
+    <parameter  id="P_DTNEG" description="Dt. Negociação" metadata="datePeriod" required="true" keep-last="false" keep-date="false" show-inactives="false" label="P_DTNEG : Período" order="1"/>
+    <parameter  id="TOP" description="Top?" metadata="multiList:Text" listType="sql" required="false" keep-last="false" keep-date="false" show-inactives="false" label="TOP : multiList:Text" order="2">
+      <expression type="SQL">
+        <![CDATA[SELECT DISTINCT CODTIPOPER || '-' || DESCROPER AS LABEL,
+                CODTIPOPER AS VALUE
+  FROM TGFTOP
+ WHERE ATIVO = 'S'
+   and CODTIPOPER in
+       (677, 608, 701, 702, 706, 707, 715, 716, 718, 724, 725, 732, 738, 740, 741, 746, 756, 786, 1520)
+ ORDER BY CODTIPOPER]]>
+      </expression>
+    </parameter>
+    <parameter  id="P_PARCMATRIZ" description="Parceiro Matriz" metadata="entity:Parceiro@CODPARC" required="false" keep-last="false" keep-date="false" show-inactives="false" label="P_PARCMATRIZ : Entidade/Tabela" order="3"/>
+    <parameter  id="P_PARC" description="Parceiro" metadata="entity:Parceiro@CODPARC" required="false" keep-last="false" keep-date="false" order="4" label="P_PARC : Entidade/Tabela"/>
+    <parameter  id="P_TIPOFRETE" description="Tipo de Frete" metadata="multiList:Text" listType="sql" required="false" keep-last="false" keep-date="false" order="5" label="P_TIPOFRETE : multiList:Text">
+      <expression type="SQL">
+        <![CDATA[
+        
+        
+        
+        
+        
+        
+        select distinct c.cif_fob as value,
+                (CASE
+                  WHEN c.cif_fob = 'C' THEN
+                   'CIF'
+                  WHEN c.cif_fob = 'F' THEN
+                   'FOB'
+                  WHEN c.cif_fob = 'T' THEN
+                   'TERCEIRO'
+                  ELSE
+                   NULL
+                END) as label
+ from tgfcab c
+ where c.cif_fob in ('F', 'C', 'T')
+      
+      
+      
+      
+      
+      
+      ]]>
+      </expression>
+    </parameter>
+    <parameter  id="CODUF" description="Estado(UF)" metadata="multiList:Text" listType="sql" required="false" keep-last="false" keep-date="false" order="6" label="CODUF : multiList:Text">
+      <expression type="SQL">
+        <![CDATA[
+        
+        
+        
+        
+        
+        
+        select DISTINCT UF.UF || ' - ' || UF.DESCRICAO AS LABEL, UF.CODUF AS VALUE from TSIUFS UF WHERE UF.CODUF <> 0
+      
+      
+      
+      
+      
+      
+      ]]>
+      </expression>
+    </parameter>
+    <parameter  id="P_CID" description="Cidade" metadata="entity:Cidade@CODCID" required="false" keep-last="false" keep-date="false" order="7" label="P_CID : Entidade/Tabela"/>
+    <parameter  id="P_BAIRRO" description="Bairro" metadata="entity:Bairro@CODBAI" required="false" keep-last="false" keep-date="false" order="8" label="P_BAIRRO : Entidade/Tabela"/>
+  </prompt-parameters>
+  <level id="lvl_ulnyo4" description="Primeiro">
+    <args>
+      <arg  id="CODEMP" type="integer" label="CODEMP : Número Inteiro"/>
+    </args>
+    <container orientacao="V" tamanhoRelativo="100">
+      <container orientacao="V" tamanhoRelativo="50">
+        <html5component id="html5_ulnyo5" entryPoint="model_Parceiro.jsp"></html5component>
+      </container>
+    </container>
+  </level>
+</gadget>

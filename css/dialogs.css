@@ -1,0 +1,170 @@
+.dialog {
+  margin: auto;
+  background-color: #f5f5f5;
+  position: fixed;
+  left: 50%;
+  right: 50%;
+  top: 50%;
+  bottom: 50%;
+  transform: translateX(-50%);
+  border: none;
+  border-radius: 20px;
+  width: 540px;
+}
+
+.dialog.filter {
+  width: 700px;
+}
+
+.container-dialog {
+  max-height: 680px;
+  width: auto;
+  padding: 20px;
+  overflow: auto;
+}
+
+.header-dialog {
+  border-bottom: 1px solid gray;
+  width: 100%;
+  margin-bottom: 2rem;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.header-dialog .title-dialog {
+  margin-bottom: 1rem;
+  color: #193A59;
+}
+
+.header-dialog .close-dialog {
+  background-color: #193A59;
+  width: 30px;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.header-dialog .close-dialog svg {
+  width: 30px;
+  color: #f5f5f5;
+  cursor: pointer;
+}
+
+.body-dialog.filter {
+  min-height: 460px;
+  max-height: 460px;
+  overflow-y: auto;
+  width: 100%;
+  margin-bottom: 30px;
+  padding: 1%;
+}
+
+.body-dialog.filter table td {
+  text-align: center;
+  padding: 16px;
+}
+
+.body-dialog.filter table th {
+  text-align: center;
+  padding: 16px;
+  color: #fff;
+}
+
+.campoForm {
+  display: inline-flex;
+  margin-bottom: 2rem;
+}
+
+.campoForm div {
+  justify-content: space-between;
+  align-items: center;
+  display: inline-block;
+}
+
+.campoForm div div {
+  width: 260px;
+  align-items: center;
+}
+
+.campoForm div div input,
+select {
+  height: 40px;
+  width: 180px;
+  margin-right: 8px;
+  border: 2px solid #BDC1C9;
+  border-radius: 4.2px;
+  padding-left: 10px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: unset;
+}
+
+.campoForm div div i {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+textarea {
+  width: 466px;
+  height: 80px;
+  border: 2px solid #BDC1C9;
+  border-radius: 4.2px;
+  padding: 10px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: unset;
+}
+
+#textArea div {
+  display: inline-block;
+  width: 440px;
+}
+
+.footer-dialog {
+  border-top: 1px solid gray;
+  width: 100%;
+  margin-top: 1rem;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.footer-dialog button {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn.clean {
+  color: #E63547;
+}
+
+.btn.clean:hover {
+  color: white;
+  background-color: #E63547;
+}
+
+.btn.confirm{
+  background-color: #5782A5;
+  color: white;
+}
+
+.btn.confirm:hover:not(:disabled){
+  background-color: #255073;
+}
+
+.footer-dialog button svg{
+  height: 24px;
+  margin-right: 6px;
+}
+
+.obrigatorio {
+  color: red;
+}
+
+#filterRegiao,
+#filterVeiculo,
+#filterTransportadora,
+#filterMotorista {
+  pointer-events: none;
+  background-color: #D0D3DA;
+}
